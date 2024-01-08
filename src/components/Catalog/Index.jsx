@@ -4,7 +4,7 @@ import Product from "../Product/Index";
 const Catalog = ({ onAddToCart }) => {
 
   return (
-    <div>
+    <div className=''>
       <h1>Catálogo de Produtos</h1>
       <div className="products-container">
         {productsData.map((product) => (
