@@ -41,6 +41,12 @@ function App() {
       );
     });
   };
+
+  const handleRemoveFromCart = (product) => {
+    toast.error(`${product.name} removido do carrinho!`)
+    setCartItems((prevItems) =>
+      prevItems.filter((item) => item.id !== product.id))
+  }
   return (
     <>
       <BrowserRouter>
@@ -55,7 +61,7 @@ function App() {
         <div className='container'>
           <Routes>
             <Route path='/' element={<Catalog onAddToCart={handleAddCart} />} />
-            <Route path='/cart' element={<Cart cartItems={cartItems} onUpdateCart={handleUpdateCart} />} />
+            <Route path='/cart' element={<Cart cartItems={cartItems} onUpdateCart={handleUpdateCart} handleRemoveFromCart={handleRemoveFromCart} />} />
             <Route path='/thank-you' element={<Thanks />} />
           </Routes>
         </div>
